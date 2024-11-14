@@ -3,3 +3,8 @@ Käynnistyskomennot
 
 npm run dev - Käynnistää nodemonilla
 npm start - Käynnistää normaalisti
+
+MongoDB
+---------------------------------------
+
+Luo tietokanta komennolla: use todo_list 
