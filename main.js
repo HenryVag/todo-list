@@ -4,6 +4,10 @@ const express = require("express");
 const mongoose = require("mongoose");
 const { MongoClient } = require("mongodb");
 
+//Controllers
+const usersController = require("./controllers/usersController");
+const homeController = require("./controllers/homeController");
+
 //Configuration
 const app = express();
 const router = express.Router();
@@ -17,10 +21,11 @@ mongoose
   .catch((err) => console.log("Error connecting to MongoDB", err));
 
 app.use("/", router);
+app.set("view engine", "ejs");
 
-router.get("/", (req, res) => {
-  res.send("Hello, World! The app is running.");
-});
+router.get("/", homeController.homePage);
+
+router.get("/users", usersController.index, usersController.indexView);
 
 app.listen(port, () => {
   console.log(`App is listening on port: ${port}`);
