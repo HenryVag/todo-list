@@ -17,10 +17,11 @@ module.exports = {
 
   indexView: (req, res) => {
     res.render("users/index");
-  } /*
+  },
   new: (req, res) => {
     res.render("users/new");
   },
+  /*
   create: (req, res, next) => {
     if (req.skip) next();
     let userParams = {
@@ -51,7 +52,7 @@ module.exports = {
         next();
       }
     });
-  },*/,
+  },*/
   redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);
