@@ -1,0 +1,5 @@
+Käynnistyskomennot
+---------------------------------------
+
+npm run dev - Käynnistää nodemonilla
+npm start - Käynnistää normaalisti
