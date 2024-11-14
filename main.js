@@ -20,12 +20,14 @@ mongoose
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log("Error connecting to MongoDB", err));
 
+app.use(express.static("public"));
 app.use("/", router);
 app.set("view engine", "ejs");
 
 router.get("/", homeController.homePage);
 
 router.get("/users", usersController.index, usersController.indexView);
+router.get("/users/new", usersController.new);
 
 app.listen(port, () => {
   console.log(`App is listening on port: ${port}`);
