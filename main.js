@@ -36,10 +36,11 @@ router.get("/", homeController.homePage);
 
 router.get("/users", usersController.index, usersController.indexView);
 router.get("/users/new", usersController.new);
-router.post("/users/create", function (req, res) {
-  usersController.create;
-  usersController.redirect;
-});
+router.post(
+  "/users/create",
+  usersController.create,
+  usersController.redirectView
+);
 
 app.listen(port, () => {
   console.log(`App is listening on port: ${port}`);
