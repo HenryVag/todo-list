@@ -21,38 +21,38 @@ module.exports = {
   new: (req, res) => {
     res.render("users/new");
   },
-  /*
+
   create: (req, res, next) => {
     if (req.skip) next();
     let userParams = {
-      name: {
-        first: req.body.first,
-        last: req.body.last,
-      },
+      userName: req.body.userName,
       email: req.body.email,
-      zipCode: req.body.zipCode,
-      phoneNumber: req.body.phoneNumber,
+      password: req.body.password,
     };
     let newUser = new User(userParams);
 
     User.register(newUser, req.body.password, (error, user) => {
       if (user) {
+        /*
         req.flash(
           "success",
           `${user.first} ${user.last}'s account created succesfully!`
-        );
-        res.locals.redirect = "/users";
+        );*/
+        console.log(`succesfully created user ${user.userName} `);
+        res.locals.redirect = "/";
         next();
       } else {
+        /*
         req.flash(
           "error",
           `Failed to create user account because ${error.message}`
-        );
-        res.locals.redirect = "/users/new";
+        );*/
+        console.log("Failed to create user");
+        res.locals.redirect = "/users";
         next();
       }
     });
-  },*/
+  },
   redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);

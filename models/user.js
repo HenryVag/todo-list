@@ -2,9 +2,10 @@ const mongoose = require("mongoose"),
   { Schema } = mongoose,
   userSchema = new Schema(
     {
-      name: {
-        first: { type: String, trim: true },
-        last: { type: String, trim: true },
+      userName: {
+        type: String,
+        required: true,
+        unique: true,
       },
       email: {
         type: String,
@@ -18,11 +19,6 @@ const mongoose = require("mongoose"),
         required: true,
       },
       tasks: [],
-      username: {
-        type: String,
-        lowercase: true,
-        unique: true,
-      },
     },
     {
       timestamps: true,
@@ -31,10 +27,7 @@ const mongoose = require("mongoose"),
 
 userSchema.pre("save", function (next) {
   if (this.isNew) {
-    const firstnameChar = this.name.first.charAt(0).toLowerCase();
-    const lastnameChar = this.name.last.slice(0, 6).toLowerCase();
-
-    this.username = `${firstnameChar}${lastnameChar}`;
+    console.log("new user created");
   }
   next();
 });
