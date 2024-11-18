@@ -36,10 +36,7 @@ module.exports = {
     User.register(newUser, req.body.password, (error, user) => {
       console.log(newUser);
       if (user) {
-        req.flash(
-          "success",
-          `${user.first} ${user.last}'s account created succesfully!`
-        );
+        req.flash("success", `${user.username}'s account created succesfully!`);
         console.log(`succesfully created user ${user.username} `);
         res.locals.redirect = "/";
         next();
@@ -63,6 +60,17 @@ module.exports = {
     successRedirect: "/users",
     successFlash: "Logged in!",
   }),
+  logout: (req, res, next) => {
+    req.logout((err) => {
+      if (err) {
+        return next(err);
+      }
+    });
+    req.flash("success", "You have been logged out!");
+    res.locals.redirect = "/";
+    next();
+  },
+
   redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);
