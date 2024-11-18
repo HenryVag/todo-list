@@ -36,26 +36,33 @@ module.exports = {
     User.register(newUser, req.body.password, (error, user) => {
       console.log(newUser);
       if (user) {
-        /*
         req.flash(
           "success",
           `${user.first} ${user.last}'s account created succesfully!`
-        );*/
+        );
         console.log(`succesfully created user ${user.username} `);
         res.locals.redirect = "/";
         next();
       } else {
-        /*
         req.flash(
           "error",
           `Failed to create user account because ${error.message}`
-        );*/
+        );
         console.log(`Failed to create user ${error.message}`);
         res.locals.redirect = "/users";
         next();
       }
     });
   },
+  login: (req, res) => {
+    res.render("users/login");
+  },
+  authenticate: passport.authenticate("local", {
+    failureRedirect: "/users/login",
+    failureFlash: "Failed to login",
+    successRedirect: "/users",
+    successFlash: "Logged in!",
+  }),
   redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);
