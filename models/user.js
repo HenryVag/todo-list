@@ -16,10 +16,6 @@ const mongoose = require("mongoose"),
         unique: true,
       },
 
-      password: {
-        type: String,
-        required: true,
-      },
       tasks: [],
     },
     {
@@ -34,6 +30,8 @@ userSchema.pre("save", function (next) {
   next();
 });
 
-userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(passportLocalMongoose, {
+  usernameField: "email",
+});
 
 module.exports = mongoose.model("User", userSchema);
