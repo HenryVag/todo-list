@@ -1,0 +1,40 @@
+<head>
+</head>
+
+<body>
+  <h2>Tasks Table</h2>
+  <a href="/tasks/new" class="button">Create a New Task</a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th id="description-header-container">Description</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% tasks.forEach(task => { %>
+        <tr>
+          <td>
+            <a href="<%= `/tasks/${task._id}` %>">
+              <%= task.title %>
+            </a>
+          </td>
+          <td>
+            <%= task.description %>
+          </td>
+          <td>
+            <a href="<%= `/tasks/${task._id}/edit` %>">
+              Edit
+            </a>
+          </td>
+          <td>
+            <a href="<%= `/tasks/${task._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
+          </td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
