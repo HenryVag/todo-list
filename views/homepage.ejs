@@ -1,26 +1,52 @@
-<h1>Welcome to Todo List!</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List - Login</title>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Todo List!</h1>
+  </header>
 
-<form action="/users/login" method="POST">
-  <label for="inputEmail">Email address</label>
-  <input
-    type="email"
-    name="email"
-    id="inputEmail"
-    placeholder="Email address"
-    required
-  />
+  <main>
+    <form action="/users/login" method="POST" aria-label="Login Form">
+      <div>
+        <label for="inputEmail">Email address</label>
+        <input
+          type="email"
+          name="email"
+          id="inputEmail"
+          placeholder="Email address"
+          required
+        />
+      </div>
 
-  <label for="inputPassword">Password</label>
-  <input
-    type="password"
-    name="password"
-    id="inputPassword"
-    placeholder="Password"
-    required
-  />
+      <div>
+        <label for="inputPassword">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="inputPassword"
+          placeholder="Password"
+          required
+        />
+      </div>
 
-  <button type="submit">Login</button>
-</form>
-<a href="/users/new" class="button">Sign Up</a>
+      <button type="submit">Login</button>
+    </form>
 
-<a> <img src="/images/nuke.png" width="200px" /></a>
+    <button onclick="location.href='/tasks';">Tasks</button>
+
+    <p>
+      Don't have an account? 
+      <a href="/users/new" class="button">Sign Up</a>
+    </p>
+
+    <figure>
+      <img src="/images/nuke.png" alt="Logo" width="200" />
+    </figure>
+  </main>
+</body>
+</html>
