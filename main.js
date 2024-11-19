@@ -13,6 +13,7 @@ const User = require("./models/user");
 //Controllers
 const usersController = require("./controllers/usersController");
 const homeController = require("./controllers/homeController");
+const tasksController = require("./controllers/tasksController");
 
 //Constants
 const port = 3000;
@@ -77,6 +78,16 @@ router.use((req, res, next) => {
 });
 
 //Routes
+
+
+router.get("/tasks", tasksController.index, tasksController.indexView);
+router.get("/tasks/new", tasksController.new);
+router.post("/tasks/create", tasksController.create, tasksController.redirectView);
+router.get("/tasks/:id/edit", tasksController.edit);
+router.put("/tasks/:id/update", tasksController.update, tasksController.redirectView);
+router.delete("/tasks/:id/delete", tasksController.delete, tasksController.redirectView);
+router.get("/tasks/:id", tasksController.show, tasksController.showView);
+
 
 router.get("/", homeController.homePage);
 
