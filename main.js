@@ -21,6 +21,7 @@ const port = 3000;
 //Configuration
 const app = express();
 const router = express.Router();
+const routes = require("./routes/routes");
 
 mongoose
   .connect("mongodb://localhost:27017/todo_list")
@@ -30,22 +31,12 @@ mongoose
 app.use(layouts);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use("/", router);
+app.use("/", routes);
 app.set("view engine", "ejs");
 
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-
-//Check for user login
-
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  } else {
-    res.redirect("/pleaselogin");
-  }
-}
 
 //Router
 
@@ -75,49 +66,6 @@ router.use((req, res, next) => {
   res.locals.loggedIn = req.isAuthenticated();
   res.locals.currentUser = req.user;
   next();
-});
-
-//Routes
-
-
-router.get("/tasks", tasksController.index, tasksController.indexView);
-router.get("/tasks/new", tasksController.new);
-router.post("/tasks/create", tasksController.create, tasksController.redirectView);
-router.get("/tasks/:id/edit", tasksController.edit);
-router.put("/tasks/:id/update", tasksController.update, tasksController.redirectView);
-router.delete("/tasks/:id/delete", tasksController.delete, tasksController.redirectView);
-router.get("/tasks/:id", tasksController.show, tasksController.showView);
-
-
-router.get("/", homeController.homePage);
-
-router.get(
-  "/users",
-  isLoggedIn,
-  usersController.index,
-  usersController.indexView
-);
-router.get("/users/new", usersController.new);
-router.post(
-  "/users/create",
-  usersController.create,
-  usersController.redirectView
-);
-
-router.post(
-  "/users/login",
-  usersController.authenticate,
-  usersController.redirectView
-);
-
-router.get(
-  "/users/logout",
-  usersController.logout,
-  usersController.redirectView
-);
-
-router.get("/pleaselogin", (req, res) => {
-  res.render("pleaselogin");
 });
 
 app.listen(port, () => {
