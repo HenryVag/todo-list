@@ -10,9 +10,16 @@ const taskSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    required: true
+    required: false
   },
-  Finished: Boolean
+deadline: {
+  type: Date,
+  required: false,
+},
+  completed: {
+    type: Boolean,
+    default: false,
+  }
   
 });
 

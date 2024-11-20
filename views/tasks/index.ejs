@@ -1,15 +1,21 @@
 <head>
+  <link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body>
-  <h2>Tasks Table</h2>
-  <a href="/tasks/new" class="button">Create a New Task</a>
+  <h2>All tasks</h2>
+  <div class="button-container">
+    <a href="/" class="button">Home</a>
+    <a href="/tasks/new" class="button">Create a New Task</a>
+  </div>
 
   <table class="table">
     <thead>
       <tr>
         <th>Title</th>
         <th id="description-header-container">Description</th>
+        <th>Deadline</th>
+        <th>Completed</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
@@ -22,8 +28,17 @@
               <%= task.title %>
             </a>
           </td>
+          <td><%= task.description %></td>
+          <td><%= task.deadline ? task.deadline.toDateString() : "No deadline" %></td>
           <td>
-            <%= task.description %>
+            <form action="/tasks/<%= task._id %>/mark-completed?_method=PUT" method="POST">
+              <input 
+                type="checkbox" 
+                name="completed" 
+                onchange="this.form.submit()" 
+                <%= task.completed ? 'checked' : '' %> 
+                />
+            </form>
           </td>
           <td>
             <a href="<%= `/tasks/${task._id}/edit` %>">

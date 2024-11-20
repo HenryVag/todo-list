@@ -42,6 +42,7 @@ router.get("/tasks/:id/edit", tasksController.edit);
 router.put("/tasks/:id/update", tasksController.update, tasksController.redirectView);
 router.delete("/tasks/:id/delete", tasksController.delete, tasksController.redirectView);
 router.get("/tasks/:id", tasksController.show, tasksController.showView);
+router.put("/tasks/:id/mark-completed", tasksController.markCompleted);
 
 router.get("/", homeController.homePage);
 
