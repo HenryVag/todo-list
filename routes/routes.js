@@ -2,6 +2,10 @@
 
 //Imports
 const express = require("express");
+const methodOverride = require("method-override");
+const expressSession = require("express-session");
+const connectFlash = require("connect-flash");
+const passport = require("passport");
 
 //Controllers
 const usersController = require("../controllers/usersController");
@@ -10,6 +14,34 @@ const tasksController = require("../controllers/tasksController");
 
 //Config
 const router = express.Router();
+
+router.use(
+  methodOverride("_method", {
+    methods: ["POST", "GET"],
+  })
+);
+
+router.use(
+  expressSession({
+    secret: "secret_passcode",
+    cookie: {
+      maxAge: 4000000,
+    },
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+
+router.use(connectFlash());
+router.use(passport.initialize());
+router.use(passport.session());
+
+router.use((req, res, next) => {
+  res.locals.flashMessages = req.flash();
+  res.locals.loggedIn = req.isAuthenticated();
+  res.locals.currentUser = req.user;
+  next();
+});
 
 //Check if user has logged in
 function isLoggedIn(req, res, next) {
