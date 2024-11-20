@@ -54,10 +54,23 @@ function isLoggedIn(req, res, next) {
 
 //Task routes
 
-router.get("/tasks", tasksController.index, tasksController.indexView);
-router.get("/tasks/new", tasksController.new);
+router.get(
+  "/tasks",
+  isLoggedIn,
+  tasksController.index,
+  tasksController.indexView
+);
+
+router.get(
+  "/tasks/usertasks",
+  isLoggedIn,
+  tasksController.usertasks,
+  tasksController.usertaskView
+);
+router.get("/tasks/new", isLoggedIn, tasksController.new);
 router.post(
   "/tasks/create",
+  isLoggedIn,
   tasksController.create,
   tasksController.redirectView
 );
