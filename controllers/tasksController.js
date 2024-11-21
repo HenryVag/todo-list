@@ -26,6 +26,8 @@ module.exports = {
     let taskParams = {
       title: req.body.title,
       description: req.body.description,
+      deadline: req.body.deadline,
+      completed: req.body.completed === "on"
     };
 
     Task.create(taskParams)
@@ -85,6 +87,8 @@ module.exports = {
       taskParams = {
         title: req.body.title,
         description: req.body.description,
+        deadline: req.body.deadline,
+        completed: req.body.completed === "on"
       };
 
     Task.findByIdAndUpdate(taskId, {
@@ -97,6 +101,19 @@ module.exports = {
       })
       .catch((error) => {
         console.log(`Error updating task by ID: ${error.message}`);
+        next(error);
+      });
+  },
+  markCompleted: (req, res, next) => {
+    let taskId = req.params.id;
+    let isCompleted = req.body.completed === "on";
+  
+    Task.findByIdAndUpdate(taskId, { completed: isCompleted })
+      .then(() => {
+        res.redirect("/tasks");
+      })
+      .catch(error => {
+        console.log(`Error updating task completion status: ${error.message}`);
         next(error);
       });
   },
@@ -143,5 +160,6 @@ module.exports = {
     let redirectPath = res.locals.redirect;
     if (redirectPath !== undefined) res.redirect(redirectPath);
     else next();
+
   },
 };
