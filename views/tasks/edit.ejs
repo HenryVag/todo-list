@@ -2,10 +2,15 @@
   <link rel="stylesheet" href="/css/styles.css">
 </head>
 <div class="data-form">
-  <form class="form-signin" action="<%=`/tasks/${task._id}/update?_method=PUT`%>" method="POST">
+  <form
+    class="form-signin"
+    action="<%=`/tasks/${task._id}/update?_method=PUT`%>"
+    method="POST"
+  >
     <h2 class="form-signin-heading">Edit task:</h2>
     <label for="inputTitle">Title</label>
-    <input type="text" name="title" id="inputTitle" class="form-control" value="<%= task.title %>" placeholder="Title" autofocus>
+
+    <input type="text" name="title" id="inputTitle" class="form-control" value="<%= task.title %>" placeholder="Title" autofocus required>
 
     <label for="inputDescription">Description</label>
     <textarea name="description" id="inputDescription" class="form-control" placeholder="Description" rows="5" cols="50">

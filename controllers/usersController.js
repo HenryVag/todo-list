@@ -46,7 +46,7 @@ module.exports = {
           `Failed to create user account because ${error.message}`
         );
         console.log(`Failed to create user ${error.message}`);
-        res.locals.redirect = "/users";
+        res.locals.redirect = "/";
         next();
       }
     });
