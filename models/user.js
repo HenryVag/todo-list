@@ -16,7 +16,12 @@ const mongoose = require("mongoose"),
         unique: true,
       },
 
-      tasks: [],
+      tasks: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Task",
+        },
+      ],
     },
     {
       timestamps: true,
