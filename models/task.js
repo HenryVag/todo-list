@@ -6,21 +6,23 @@ const taskSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
-    unique: false
+    unique: true,
   },
   description: {
     type: String,
-    required: false
+    required: true
   },
 deadline: {
   type: Date,
-  required: false,
+  required: true,
 },
   completed: {
     type: Boolean,
     default: false,
   }
-  
+    required: true,
+  },
+ 
 });
 
 module.exports = mongoose.model("Task", taskSchema);
