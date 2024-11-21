@@ -3,43 +3,31 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const { MongoClient } = require("mongodb");
-const methodOverride = require("method-override");
-
-//Controllers
-const usersController = require("./controllers/usersController");
-const homeController = require("./controllers/homeController");
-
-//Configuration
-const app = express();
-const router = express.Router();
+const passport = require("passport");
+const layouts = require("express-ejs-layouts");
+const User = require("./models/user");
 
 //Constants
 const port = 3000;
+
+//Configuration
+const app = express();
+const routes = require("./routes/routes");
 
 mongoose
   .connect("mongodb://localhost:27017/todo_list")
   .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log("Error connecting to MongoDB", err));
 
+app.use(layouts);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
-app.use("/", router);
+app.use("/", routes);
 app.set("view engine", "ejs");
 
-router.use(
-  methodOverride("_method", {
-    methods: ["POST", "GET"],
-  })
-);
-
-router.get("/", homeController.homePage);
-
-router.get("/users", usersController.index, usersController.indexView);
-router.get("/users/new", usersController.new);
-router.post("/users/create", function (req, res) {
-  usersController.create;
-  usersController.redirect;
-});
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.listen(port, () => {
   console.log(`App is listening on port: ${port}`);

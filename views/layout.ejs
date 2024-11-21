@@ -1,0 +1,7 @@
+<h1>Todo List</h1>
+<%- include('partials/navigation') %> <%- body %>
+<div id="flash-message-container">
+  <% if (flashMessages) { %> <% if (flashMessages.success) { %> <%=
+  flashMessages.success %> <% } else if (flashMessages.error) { %> <%=
+  flashMessages.error %> <% } %> <% } %>
+</div>

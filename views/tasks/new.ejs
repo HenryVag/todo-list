@@ -1,0 +1,23 @@
+<head>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<div class="data-form">
+  <form class="form-signin" action="/tasks/create" method="POST">
+    <h2 class="form-signin-heading">Create a new task:</h2>
+
+    <label for="inputTitle">Title</label>
+
+    <input type="text" name="title" id="inputTitle" class="form-control" placeholder="Title" autofocus required>
+
+    <label for="description">Description</label>
+    <textarea name="description" id="inputDescription" class="form-control" placeholder="Description" rows="5" cols="50"></textarea>
+
+    <label for="deadline">Deadline</label>
+    <input type="date" name="deadline" id="deadline">
+
+    <label for="completed">Completed</label>
+    <input type="checkbox" name="completed" id="completed">
+
+    <br/><button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+  </form>
+</div>

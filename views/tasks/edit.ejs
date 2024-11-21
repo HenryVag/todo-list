@@ -1,0 +1,30 @@
+<head>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<div class="data-form">
+  <form
+    class="form-signin"
+    action="<%=`/tasks/${task._id}/update?_method=PUT`%>"
+    method="POST"
+  >
+    <h2 class="form-signin-heading">Edit task:</h2>
+    <label for="inputTitle">Title</label>
+
+    <input type="text" name="title" id="inputTitle" class="form-control" value="<%= task.title %>" placeholder="Title" autofocus required>
+
+    <label for="inputDescription">Description</label>
+    <textarea name="description" id="inputDescription" class="form-control" placeholder="Description" rows="5" cols="50">
+      <%= task.description %>
+    </textarea>
+
+
+    <label for="deadline">Deadline</label>
+    <input type="date" name="deadline" id="deadline" value="<%= task.deadline ? task.deadline.toISOString().substring(0, 10) : '' %>">
+
+    <label for="completed">Completed</label>
+    <input type="checkbox" name="completed" id="completed" <%= task.completed ? "checked" : "" %>>
+
+
+    <br /><button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+  </form>
+</div>
