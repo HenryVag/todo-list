@@ -12,17 +12,15 @@ const taskSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-deadline: {
+  deadline: {
   type: Date,
   required: true,
-},
+  },
   completed: {
     type: Boolean,
     default: false,
-  }
     required: true,
   },
- 
 });
 
 module.exports = mongoose.model("Task", taskSchema);

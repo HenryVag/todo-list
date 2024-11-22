@@ -80,6 +80,8 @@ router.put(
   tasksController.update,
   tasksController.redirectView
 );
+router.put("/tasks/:id/mark-completed", tasksController.markCompleted);
+
 router.delete(
   "/tasks/:id/delete",
   tasksController.delete,
