@@ -1,7 +1,10 @@
+<link rel="stylesheet" href="/css/styles.css" />
 <h1>Todo List</h1>
 <%- include('partials/navigation') %> <%- body %>
-<div id="flash-message-container">
-  <% if (flashMessages) { %> <% if (flashMessages.success) { %> <%=
-  flashMessages.success %> <% } else if (flashMessages.error) { %> <%=
-  flashMessages.error %> <% } %> <% } %>
+<div class="flash-message-container">
+  <% if (flashMessages) { %> <% if (flashMessages.success) { %>
+  <div class="flash-success"><%= flashMessages.success %></div>
+  <% } else if (flashMessages.error) { %>
+  <div class="flash-error"><%= flashMessages.error %></div>
+  <% } %> <% } %>
 </div>
