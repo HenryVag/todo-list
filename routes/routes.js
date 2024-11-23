@@ -77,7 +77,6 @@ router.post(
 router.get("/tasks/:id/edit", isLoggedIn, tasksController.edit);
 router.put(
   "/tasks/:id/update",
-
   tasksController.update,
   tasksController.redirectView
 );
