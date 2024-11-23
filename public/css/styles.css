@@ -1,109 +1,135 @@
 /* Example styles */
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
 }
 
 h2 {
-    color: blueviolet;
+  color: blueviolet;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
-table th, table td {
-    border: 1px solid #ddd;
-    padding: 8px;
+table th,
+table td {
+  border: 1px solid #ddd;
+  padding: 8px;
 }
 
 table th {
-    background-color: blueviolet;
-    color: white;
+  background-color: blueviolet;
+  color: white;
 }
 .button-container {
-    text-align: left;
-    margin: 20px 0;
+  text-align: left;
+  margin: 20px 0;
 }
 
 /* Button styling */
 .button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-    background-color: blueviolet;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: blueviolet;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 /* Hover effects for the button */
 .button:hover {
-    background-color: darkviolet;
-    transform: scale(1.05);
+  background-color: darkviolet;
+  transform: scale(1.05);
 }
 
 /* Active state for the button */
 .button:active {
-    background-color: indigo;
-    transform: scale(0.95);
+  background-color: indigo;
+  transform: scale(0.95);
 }
 textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical; /* Allow vertical resizing */
-  }
-  textarea.form-control {
-    width: 100%;               /* Makes the textarea fill the available width */
-    padding: 10px;             /* Adds padding inside the textarea */
-    border-radius: 5px;        /* Rounded corners for a softer look */
-    border: 1px solid #ccc;    /* Lighter border color */
-    font-size: 16px;           /* Increase font size for readability */
-    box-sizing: border-box;    /* Ensures padding is included in the total width */
-    resize: vertical;          /* Allows resizing the textarea vertically */
-  }
-  
-  textarea.form-control:focus {
-    border-color: #007bff;     /* Blue border when focused */
-    outline: none;             /* Removes the outline for a cleaner look */
-  }
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical; /* Allow vertical resizing */
+}
+textarea.form-control {
+  width: 100%; /* Makes the textarea fill the available width */
+  padding: 10px; /* Adds padding inside the textarea */
+  border-radius: 5px; /* Rounded corners for a softer look */
+  border: 1px solid #ccc; /* Lighter border color */
+  font-size: 16px; /* Increase font size for readability */
+  box-sizing: border-box; /* Ensures padding is included in the total width */
+  resize: vertical; /* Allows resizing the textarea vertically */
+}
 
-  form {
-    max-width: 600px;        /* Limits the form width */
-    margin: 20px auto;       /* Centers the form on the page */
-    padding: 20px;           /* Adds some padding inside the form */
-    background-color: #f9f9f9; /* Light background color */
-    border-radius: 10px;     /* Rounded corners for the form */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the form */
-  }
-  
-  label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    display: block;
-  }
+textarea.form-control:focus {
+  border-color: #007bff; /* Blue border when focused */
+  outline: none; /* Removes the outline for a cleaner look */
+}
 
-  button.button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745; /* Green button */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
-  }
-  
-  button.button:hover {
-    background-color: #218838; /* Darker green when hovered */
-  }
+form {
+  max-width: 600px; /* Limits the form width */
+  margin: 20px auto; /* Centers the form on the page */
+  padding: 20px; /* Adds some padding inside the form */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 10px; /* Rounded corners for the form */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the form */
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+}
+
+button.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745; /* Green button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button.button:hover {
+  background-color: #218838; /* Darker green when hovered */
+}
+
+.login-form-container {
+  float: left;
+}
+
+.flash-message-container {
+  font-family: Arial, sans-serif;
+}
+.flash-success {
+  background-color: green;
+  opacity: 75%;
+  border-radius: 5px;
+}
+.flash-error {
+  background-color: red;
+  opacity: 75%;
+  border-radius: 5px;
+}
+.logged-in-container {
+  padding-left: 20%;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+}
