@@ -1,9 +1,9 @@
 <head>
   <link rel="stylesheet" href="/css/styles.css">
 </head>
-<h1 class="center">Task Details for <%= task.title %></h1>
+<h2 class="center">Task Details for <%= task.title %></h2>
 
-<table class="table">
+<table class="table styled-table">
   <tr>
     <th>Title</th>
     <td><%= task.title %></td>
@@ -22,12 +22,14 @@
   </tr>
 </table>
 
-<div>
+<div class="button-container">
   <a class="button" href="/tasks">View all tasks</a>
 </div>
-<div>
+<div class="button-container">
   <a class="button" href="<%= `/tasks/${task._id}/edit` %>">Edit Task Details</a>
 </div>
-<div>
+<div class="button-container">
   <a class="button" href="<%= `/tasks/${task._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
 </div>
+
+<a> <img src="/images/unicorn.png" width="300px" /></a>
