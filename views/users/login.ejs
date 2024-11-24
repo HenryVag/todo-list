@@ -1,31 +1,27 @@
-<% if (loggedIn) { %> Logged in as
-<a href="/users/<%= currentUser._id %>"> <%= currentUser.username %> </a>
-<a href="/users/logout">Log out</a>
-<% } else { %>
+<% if (loggedIn) { %> <% } else { %>
 
-<form action="/users/login" method="POST">
-  <label for="inputEmail">Email address</label>
-  <input
-    type="email"
-    name="email"
-    id="inputEmail"
-    placeholder="Email address"
-    required
-  />
+<div class="login-form-container">
+  <form action="/users/login" method="POST">
+    <label for="inputEmail">Email address</label>
+    <input
+      type="email"
+      name="email"
+      id="inputEmail"
+      placeholder="Email address"
+      required
+    />
 
-  <label for="inputPassword">Password</label>
-  <input
-    type="password"
-    name="password"
-    id="inputPassword"
-    placeholder="Password"
-    required
-  />
+    <label for="inputPassword">Password</label>
+    <input
+      type="password"
+      name="password"
+      id="inputPassword"
+      placeholder="Password"
+      required
+    />
 
-  <button type="submit">Login</button>
-</form>
-<a href="/users/new" class="button">Sign Up</a>
-
-<a> <img src="/images/nuke.png" width="200px" /></a>
-
+    <button type="submit">Login</button>
+  </form>
+  <a href="/users/new" class="button">Sign Up</a>
+</div>
 <% } %>
