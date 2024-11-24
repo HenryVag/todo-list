@@ -1,113 +1,142 @@
-/* Example styles */
 
 body {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-  background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    background-color: #ffe6f2; /* Light pink background */
 }
 
 h2 {
-  color: blueviolet;
+    color: #d291bc; /* Light purple */
 }
 
 table {
-  width: 100%;
-  border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    font-size: 18px; 
+    background-color: #ffffff; 
 }
 
-table th,
-table td {
-  border: 1px solid #ddd;
-  padding: 8px;
+table th, table td {
+    border: 1px solid #f4c2c2; /* Light pink border */
+    padding: 12px;
 }
 
 table th {
-  background-color: blueviolet;
-  color: white;
+    background-color: #d291bc; /* Light purple */
+    color: white;
+    font-weight: bold;
+    text-align: left;
 }
+
+table tr:nth-of-type(even) {
+    background-color: #f9f2f7; /* Light pink for alternating rows */
+
+}
+
 .button-container {
   text-align: left;
   margin: 20px 0;
 }
 
-/* Button styling */
 .button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  background-color: blueviolet;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffb6c1; /* Light pink button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hover effects for the button */
 .button:hover {
-  background-color: darkviolet;
-  transform: scale(1.05);
+    background-color: #ff69b4; /* Hot pink*/
+    transform: scale(1.05);
 }
 
-/* Active state for the button */
 .button:active {
   background-color: indigo;
   transform: scale(0.95);
 }
+
 textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  resize: vertical; /* Allow vertical resizing */
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical; /* Allow vertical resizing */
 }
+
 textarea.form-control {
-  width: 100%; /* Makes the textarea fill the available width */
-  padding: 10px; /* Adds padding inside the textarea */
-  border-radius: 5px; /* Rounded corners for a softer look */
-  border: 1px solid #ccc; /* Lighter border color */
-  font-size: 16px; /* Increase font size for readability */
-  box-sizing: border-box; /* Ensures padding is included in the total width */
-  resize: vertical; /* Allows resizing the textarea vertically */
+    width: 100%;               
+    padding: 10px;             
+    border-radius: 5px;        
+    border: 1px solid #ccc;    
+    font-size: 16px;           
+    box-sizing: border-box;    
+    resize: vertical;          
 }
 
 textarea.form-control:focus {
-  border-color: #007bff; /* Blue border when focused */
-  outline: none; /* Removes the outline for a cleaner look */
+    border-color: #007bff;     
+    outline: none;             
 }
 
 form {
-  max-width: 600px; /* Limits the form width */
-  margin: 20px auto; /* Centers the form on the page */
-  padding: 20px; /* Adds some padding inside the form */
-  background-color: #f9f9f9; /* Light background color */
-  border-radius: 10px; /* Rounded corners for the form */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the form */
+    max-width: 600px;        
+    margin: 20px auto;       
+    padding: 20px;           
+    background-color: #f2cedf; 
+    border-radius: 10px;     
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 label {
-  font-weight: bold;
-  margin-bottom: 8px;
-  display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+    color: #d291bc; 
 }
 
 button.button {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  background-color: #28a745; /* Green button */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  margin-top: 20px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffb6c1; /* Light pink button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
 }
 
 button.button:hover {
-  background-color: #218838; /* Darker green when hovered */
+    background-color: #ff69b4; /* Hot pink when hovered */
+}
+
+.todo-title {
+    color: #fdfd96; /* Pastel yellow */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 20px;
+}
+.button-container {
+    margin-bottom: 2px; 
+  }
+
+.image-container {
+    text-align: center;
+    margin-top: 20px; /* Add some space between the form and the image */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto; /* Ensures the image scales well */
 }
 
 .login-form-container {
@@ -133,3 +162,4 @@ button.button:hover {
   font-weight: bold;
   font-size: 24px;
 }
+

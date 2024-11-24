@@ -8,3 +8,4 @@ MongoDB
 ---------------------------------------
 
 Luo tietokanta komennolla: use todo_list 
+Tietokanta ei näy ennen kuin sinne on lisännyt tietoa esim. db.tasks.insertOne({name: task1})
