@@ -80,6 +80,8 @@ router.put(
   tasksController.update,
   tasksController.redirectView
 );
+router.put("/tasks/:id/mark-completed", tasksController.markCompleted);
+
 router.delete(
   "/tasks/:id/delete",
   tasksController.delete,
@@ -104,6 +106,8 @@ router.get(
   usersController.index,
   usersController.indexView
 );
+router.get("/users/login", usersController.login);
+
 router.get("/users/new", usersController.new);
 router.post(
   "/users/create",
@@ -129,3 +133,4 @@ router.get("/pleaselogin", (req, res) => {
 });
 
 module.exports = router;
+

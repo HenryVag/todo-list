@@ -1,4 +1,3 @@
-<head> </head>
 
 <body>
   <h2>Tasks Table</h2>
@@ -7,6 +6,8 @@
       <tr>
         <th>Title</th>
         <th id="description-header-container">Description</th>
+        <th>Deadline</th>
+        <th>Mark as completed</th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
@@ -21,6 +22,17 @@
         <td>
           <a href="<%= `/tasks/${task._id}/edit` %>"> Edit </a>
         </td>
+        <td><%= task.deadline ? task.deadline.toDateString() : "No deadline" %></td>
+          <td>
+            <form action="/tasks/<%= task._id %>/mark-completed?_method=PUT" method="POST">
+              <input 
+                type="checkbox" 
+                name="completed" 
+                onchange="this.form.submit()" 
+                <%= task.completed ? 'checked' : '' %> 
+                />
+            </form>
+          </td>
         <td>
           <a
             href="<%= `/tasks/${task._id}/delete?_method=DELETE` %>"
