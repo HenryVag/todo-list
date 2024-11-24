@@ -25,7 +25,7 @@
             </a>
           </td>
           <td><%= task.description %></td>
-          <td><%= task.deadline ? task.deadline.toDateString() : "No deadline" %></td>
+          <td><%= task.deadline ? task.deadline.toDateString() : "No deadline " %></td>
           <td>
             <form action="/tasks/<%= task._id %>/mark-completed?_method=PUT" method="POST">
               <input 

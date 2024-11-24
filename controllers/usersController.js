@@ -56,7 +56,7 @@ module.exports = {
   },
   authenticate: passport.authenticate("local", {
     failureRedirect: "/users/login",
-    failureFlash: "Failed to login",
+    failureFlash: "Invalid email or password. Please check your credentials.",
     successRedirect: "/users",
     successFlash: "Logged in!",
   }),
