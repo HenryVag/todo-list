@@ -54,8 +54,9 @@ module.exports = {
     res.render("users/login");
   },
   authenticate: passport.authenticate("local", {
+
     failureRedirect: "/",
-    failureFlash: "Incorrect passoword or username",
+    failureFlash: "Invalid passoword or username",
     successRedirect: "/",
     successFlash: "Logged in!",
   }),

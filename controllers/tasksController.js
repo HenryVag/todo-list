@@ -110,7 +110,10 @@ module.exports = {
 
     Task.findByIdAndUpdate(taskId, { completed: isCompleted })
       .then(() => {
+
+        req.flash("success", "Task status updated successfully!");
         res.redirect("/tasks/usertasks");
+
       })
       .catch((error) => {
         console.log(`Error updating task completion status: ${error.message}`);
