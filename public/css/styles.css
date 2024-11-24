@@ -1,38 +1,37 @@
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    background-color: #ffe6f2; /* Light pink background */
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #ffe6f2; /* Light pink background */
 }
 
 h2 {
-    color: #d291bc; /* Light purple */
+  color: #d291bc; /* Light purple */
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    font-size: 18px; 
-    background-color: #ffffff; 
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  background-color: #ffffff;
 }
 
-table th, table td {
-    border: 1px solid #f4c2c2; /* Light pink border */
-    padding: 12px;
+table th,
+table td {
+  border: 1px solid #f4c2c2; /* Light pink border */
+  padding: 12px;
 }
 
 table th {
-    background-color: #d291bc; /* Light purple */
-    color: white;
-    font-weight: bold;
-    text-align: left;
+  background-color: #d291bc; /* Light purple */
+  color: white;
+  font-weight: bold;
+  text-align: left;
 }
 
 table tr:nth-of-type(even) {
-    background-color: #f9f2f7; /* Light pink for alternating rows */
-
+  background-color: #f9f2f7; /* Light pink for alternating rows */
 }
 
 .button-container {
@@ -41,20 +40,20 @@ table tr:nth-of-type(even) {
 }
 
 .button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #ffb6c1; /* Light pink button */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #ffb6c1; /* Light pink button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .button:hover {
-    background-color: #ff69b4; /* Hot pink*/
-    transform: scale(1.05);
+  background-color: #ff69b4; /* Hot pink*/
+  transform: scale(1.05);
 }
 
 .button:active {
@@ -63,80 +62,80 @@ table tr:nth-of-type(even) {
 }
 
 textarea {
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: vertical; /* Allow vertical resizing */
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical; /* Allow vertical resizing */
 }
 
 textarea.form-control {
-    width: 100%;               
-    padding: 10px;             
-    border-radius: 5px;        
-    border: 1px solid #ccc;    
-    font-size: 16px;           
-    box-sizing: border-box;    
-    resize: vertical;          
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+  resize: vertical;
 }
 
 textarea.form-control:focus {
-    border-color: #007bff;     
-    outline: none;             
+  border-color: #007bff;
+  outline: none;
 }
 
 form {
-    max-width: 600px;        
-    margin: 20px auto;       
-    padding: 20px;           
-    background-color: #f2cedf; 
-    border-radius: 10px;     
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #f2cedf;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 label {
-    font-weight: bold;
-    margin-bottom: 8px;
-    display: block;
-    color: #d291bc; 
+  font-weight: bold;
+  margin-bottom: 8px;
+  display: block;
+  color: #d291bc;
 }
 
 button.button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #ffb6c1; /* Light pink button */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 20px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #ffb6c1; /* Light pink button */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 button.button:hover {
-    background-color: #ff69b4; /* Hot pink when hovered */
+  background-color: #ff69b4; /* Hot pink when hovered */
 }
 
 .todo-title {
-    color: #fdfd96; /* Pastel yellow */
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 20px;
+  color: #fdfd96; /* Pastel yellow */
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 20px;
 }
 .button-container {
-    margin-bottom: 2px; 
-  }
+  margin-bottom: 2px;
+}
 
 .image-container {
-    text-align: center;
-    margin-top: 20px; /* Add some space between the form and the image */
+  text-align: center;
+  margin-top: 20px; /* Add some space between the form and the image */
 }
 
 .image-container img {
-    max-width: 100%;
-    height: auto; /* Ensures the image scales well */
+  max-width: 100%;
+  height: auto; /* Ensures the image scales well */
 }
 
 .login-form-container {
@@ -161,5 +160,5 @@ button.button:hover {
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 24px;
+  color: white;
 }
-
