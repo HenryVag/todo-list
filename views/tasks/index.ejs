@@ -1,10 +1,5 @@
 <body>
   <h2>All tasks</h2>
-  <div class="button-container">
-    <a href="/" class="button">Home</a>
-    <a href="/tasks/new" class="button">Create a New Task</a>
-  </div>
-
   <table class="table">
     <thead>
       <tr>
@@ -18,34 +13,39 @@
     </thead>
     <tbody>
       <% tasks.forEach(task => { %>
-        <tr>
-          <td>
-            <a href="<%= `/tasks/${task._id}` %>">
-              <%= task.title %>
-            </a>
-          </td>
-          <td><%= task.description %></td>
-          <td><%= task.deadline ? task.deadline.toDateString() : "No deadline " %></td>
-          <td>
-            <form action="/tasks/<%= task._id %>/mark-completed?_method=PUT" method="POST">
-              <input 
-                type="checkbox" 
-                name="completed" 
-                onchange="this.form.submit()" 
-                <%= task.completed ? 'checked' : '' %> 
-                />
-            </form>
-          </td>
-          <td>
-            <a href="<%= `/tasks/${task._id}/edit` %>">
-              Edit
-            </a>
-          </td>
-          <td>
-            <a href="<%= `/tasks/${task._id}/delete?_method=DELETE` %>" onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
-          </td>
-        </tr>
+      <tr>
+        <td>
+          <a href="<%= `/tasks/${task._id}` %>"> <%= task.title %> </a>
+        </td>
+        <td><%= task.description %></td>
+        <td>
+          <%= task.deadline ? task.deadline.toDateString() : "No deadline" %>
+        </td>
+        <td>
+          <form
+            action="/tasks/<%= task._id %>/mark-completed?_method=PUT"
+            method="POST"
+          >
+            <input type="checkbox" name="completed"
+            onchange="this.form.submit()" <%= task.completed ? 'checked' : '' %>
+            />
+          </form>
+        </td>
+        <td>
+          <a href="<%= `/tasks/${task._id}/edit` %>"> Edit </a>
+        </td>
+        <td>
+          <a
+            href="<%= `/tasks/${task._id}/delete?_method=DELETE` %>"
+            onclick="return confirm('Are you sure you want to delete this record?')"
+            >Delete</a
+          >
+        </td>
+      </tr>
       <% }); %>
     </tbody>
   </table>
 </body>
+
+<a><img src="/images/cat2.png" width="200px" /></a>
+

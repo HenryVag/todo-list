@@ -27,13 +27,13 @@ module.exports = {
       title: req.body.title,
       description: req.body.description,
       deadline: req.body.deadline,
-      completed: req.body.completed === "on"
+      completed: req.body.completed === "on",
     };
 
     Task.create(taskParams)
       .then((task) => {
         res.locals.task = task;
-        res.locals.redirect = "/tasks";
+        res.locals.redirect = "/tasks/usertasks";
 
         User.findByIdAndUpdate(
           req.user._id,
@@ -88,14 +88,14 @@ module.exports = {
         title: req.body.title,
         description: req.body.description,
         deadline: req.body.deadline,
-        completed: req.body.completed === "on"
+        completed: req.body.completed === "on",
       };
 
     Task.findByIdAndUpdate(taskId, {
       $set: taskParams,
     })
       .then((task) => {
-        res.locals.redirect = `/tasks/${taskId}`;
+        res.locals.redirect = "/tasks/usertasks";
         res.locals.task = task;
         next();
       })
@@ -107,13 +107,15 @@ module.exports = {
   markCompleted: (req, res, next) => {
     let taskId = req.params.id;
     let isCompleted = req.body.completed === "on";
-  
+
     Task.findByIdAndUpdate(taskId, { completed: isCompleted })
       .then(() => {
+
         req.flash("success", "Task status updated successfully!");
-        res.redirect("/tasks");
+        res.redirect("/tasks/usertasks");
+
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(`Error updating task completion status: ${error.message}`);
         next(error);
       });
@@ -124,7 +126,7 @@ module.exports = {
 
     Task.findByIdAndDelete(taskId)
       .then(() => {
-        res.locals.redirect = "/tasks";
+        res.locals.redirect = "/tasks/usertasks";
         return User.findByIdAndUpdate(
           req.user._id,
           { $pull: { tasks: taskId } },
@@ -161,6 +163,5 @@ module.exports = {
     let redirectPath = res.locals.redirect;
     if (redirectPath !== undefined) res.redirect(redirectPath);
     else next();
-
   },
 };
