@@ -1,1 +1,19 @@
-<div id="nav"></div>
+
+<% if (loggedIn) { %>
+<div class="button-container">
+  <a href="/" class="button">Home</a>
+  <a href="/tasks/usertasks" class="button">Your tasks</a>
+  <a href="/tasks/new" class="button">Create a New Task</a>
+  <a href="/users/logout" class="button">Log out</a>
+  <span class="logged-in-container" href="/users/<%= currentUser._id %>">
+    Logged in as <%= currentUser.username %></span
+  >
+</div>
+<% } else { %>
+<div class="button-container">
+  <a href="/" class="button">Home</a>
+  <a href="/tasks/usertasks" class="button">Your tasks</a>
+  <a href="/tasks/new" class="button">Create a New Task</a>
+</div>
+<% } %>
+

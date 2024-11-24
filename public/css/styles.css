@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
@@ -31,11 +32,12 @@ table th {
 
 table tr:nth-of-type(even) {
     background-color: #f9f2f7; /* Light pink for alternating rows */
+
 }
 
 .button-container {
-    text-align: left;
-    margin: 20px 0;
+  text-align: left;
+  margin: 20px 0;
 }
 
 .button {
@@ -47,15 +49,17 @@ table tr:nth-of-type(even) {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .button:hover {
     background-color: #ff69b4; /* Hot pink*/
+    transform: scale(1.05);
 }
 
 .button:active {
-    background-color: indigo;
-    transform: scale(0.95);
+  background-color: indigo;
+  transform: scale(0.95);
 }
 
 textarea {
@@ -134,3 +138,28 @@ button.button:hover {
     max-width: 100%;
     height: auto; /* Ensures the image scales well */
 }
+
+.login-form-container {
+  float: left;
+}
+
+.flash-message-container {
+  font-family: Arial, sans-serif;
+}
+.flash-success {
+  background-color: green;
+  opacity: 75%;
+  border-radius: 5px;
+}
+.flash-error {
+  background-color: red;
+  opacity: 75%;
+  border-radius: 5px;
+}
+.logged-in-container {
+  padding-left: 20%;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+}
+

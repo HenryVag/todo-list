@@ -74,7 +74,7 @@ router.post(
   tasksController.create,
   tasksController.redirectView
 );
-router.get("/tasks/:id/edit", tasksController.edit);
+router.get("/tasks/:id/edit", isLoggedIn, tasksController.edit);
 router.put(
   "/tasks/:id/update",
   tasksController.update,
@@ -85,7 +85,12 @@ router.delete(
   tasksController.delete,
   tasksController.redirectView
 );
-router.get("/tasks/:id", tasksController.show, tasksController.showView);
+router.get(
+  "/tasks/:id",
+  isLoggedIn,
+  tasksController.show,
+  tasksController.showView
+);
 
 //Home route
 

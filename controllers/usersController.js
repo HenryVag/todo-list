@@ -34,7 +34,6 @@ module.exports = {
     let newUser = new User(userParams);
 
     User.register(newUser, req.body.password, (error, user) => {
-      console.log(newUser);
       if (user) {
         req.flash("success", `${user.username}'s account created succesfully!`);
         console.log(`succesfully created user ${user.username} `);
@@ -43,7 +42,7 @@ module.exports = {
       } else {
         req.flash(
           "error",
-          `Failed to create user account because ${error.message}`
+          `Failed to create user account because: ${error.message}`
         );
         console.log(`Failed to create user ${error.message}`);
         res.locals.redirect = "/";
@@ -55,9 +54,9 @@ module.exports = {
     res.render("users/login");
   },
   authenticate: passport.authenticate("local", {
-    failureRedirect: "/users/login",
-    failureFlash: "Failed to login",
-    successRedirect: "/users",
+    failureRedirect: "/",
+    failureFlash: "Incorrect passoword or username",
+    successRedirect: "/",
     successFlash: "Logged in!",
   }),
   logout: (req, res, next) => {
